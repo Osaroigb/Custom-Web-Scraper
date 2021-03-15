@@ -9,7 +9,7 @@ driver = webdriver.Chrome(executable_path=chrome_driver_path)
 
 website_link = "https://www.nba.com/stats/alltime-leaders/"
 driver.get(url=website_link)
-sleep(3)
+sleep(3)  # 3 seconds delay to allow the webpage fully load
 
 player_list = []
 points_list = []
@@ -58,3 +58,6 @@ stats_dict = {
 
 stats_df = pandas.DataFrame(stats_dict)  # create a Dataframe from the dictionary
 stats_df.to_csv("all_time_leaders.csv")  # convert the Dataframe to csv and save it
+
+sleep(3)
+driver.close()  # close the webpage after scraping
